@@ -1,9 +1,9 @@
 daily-programmer
 ================
 
-Daily Programmer Challenges from Reddit (/r/DailyProgrammer)
+A personal project in which a new coding exercise will be completed every two days, with each exercise implemented in a different mainstream language in order to gain proficiency in a variety of programming languages. Challenges selected from Reddit Daily Programmer Challenges (r/DailyProgrammer). 
 
-## Self-Imposed Programming Schedule
+## Programming Schedule
 ### Due Tuesday 12/24
 [**Challenge #145** in Bash](http://www.reddit.com/r/dailyprogrammer/comments/1t0r09/121613_challenge_145_easy_tree_generation/)
 
