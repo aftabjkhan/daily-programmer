@@ -1,8 +1,10 @@
 #!/bin/bash
 
+# Aftab Khan, 2013
+
 echo -e "\nWelcome to the ASCII Art Christmas Tree Generator!\n"
 echo "Please enter the following (space separated):"
-echo "Max-Tree-Width(Odd) Tree-Body-Character Tree-Trunk-Character"
+echo ">> Max-Tree-Width(Odd) Tree-Body-Character Tree-Trunk-Character"
 echo -n ">> "
 
 read tree_width body_char trunk_char
@@ -18,9 +20,11 @@ then
 		char_count=1
 		# Initial space count (in row 0) = tree_width / 2
 		space_count=$(($tree_width / 2))
-		# Total number of tree body rows = floor(tree-width / 2) + 1
+		# Total number of tree body rows = tree-width / 2 + 1
 		max_rows=$(($(($tree_width / 2)) + 1))
 		#alternately: let "max_rows=$(($(($tree_width / 2)) + 1))"
+
+		echo ""
 
 		# Print tree body
 		while [ $row_count -lt $max_rows ]
@@ -50,6 +54,17 @@ then
 			let "char_count += 2"
 			let "space_count -= 1"
 		done
+
+		# Print tree trunk (1x3)
+		a=0
+		# Trunk space count (from start of line) = (tree-width / 2) - 1
+		space_count=$(($(($tree_width / 2)) - 1))
+		while [ $a -lt $space_count ]
+		do
+			echo -n " "
+			let "a += 1"
+		done
+		echo -e "$trunk_char$trunk_char$trunk_char\n"
 
 	else 
 		echo "Could not create tree! Tree Width value must be an odd integer" 2>&1
