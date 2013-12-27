@@ -3,18 +3,8 @@
 open Str
 open List
 
-let _ = 
-	let l1_list = Str.split (regexp " ") (input_line stdin) in 
-	let l2_list = Str.split (regexp " ") (input_line stdin) in
-	let l3_list = Str.split (regexp " ") (input_line stdin) in
-        (*let braille_list = List.map2 (fun x y -> x ^ y) (List.map2 concat_lines l1_list l2_list) l3_list*)
-        let braille_list = List.map2 (^) (List.map2 (^) l1_list l2_list) l3_list
-        in
-            List.map print_string braille_list
-
 let match_letter braille = 
-	match braille with
-	  _ -> " "
+    match braille with
     | "O....." -> "a"
     | "O.O..." -> "b"
     | "OO...." -> "c"
@@ -41,3 +31,15 @@ let match_letter braille =
     | "OO..OO" -> "x"
     | "OO.OOO" -> "y"
     | "O..OOO" -> "z"
+    | _ -> " "
+;;
+
+let _ = 
+    (* Read in and tokenize (create list of) each line of each braille character *)
+	let l1_list = Str.split (regexp " ") (input_line stdin) in 
+	let l2_list = Str.split (regexp " ") (input_line stdin) in
+	let l3_list = Str.split (regexp " ") (input_line stdin) in
+        (* Create list of braille characters, appending the ith of each line together *)
+        let braille_list = List.map2 (^) (List.map2 (^) l1_list l2_list) l3_list in
+            (* Match each character with its corresponding alphabet letter and print *)
+            List.map print_string (List.map match_letter braille_list)
