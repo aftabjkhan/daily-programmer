@@ -1,7 +1,7 @@
 all: braille
 
 braille:
-	ocamlc -o braille braille.ml
+	ocamlc -o braille str.cma braille.ml
 
 .PHONY: clean
 clean:

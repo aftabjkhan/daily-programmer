@@ -1,11 +1,19 @@
 (* Aftab Khan, 2013 *)
 
-let _ = 
-	let line_1 = input_line stdin in 
-	let line_2 = input_line stdin in
-	let line_3 = input_line stdin in
-	print_string ("Test: " ^ line_1 ^ line_2 ^ line_3)
+open Str
+open List
 
+let concat_lines x y a = 
+    (x ^ y) :: a
+;;
+
+let _ = 
+	let l1_list = Str.split (regexp " ") (input_line stdin) in 
+	let l2_list = Str.split (regexp " ") (input_line stdin) in
+	let l3_list = Str.split (regexp " ") (input_line stdin) in
+        let braille_list = List.fold_right2 concat_lines (List.fold_right2 concat_lines l1_list l2_list []) l3_list []
+        in
+            List.map print_string braille_list
 
 let match_letter braille = 
 	match braille with
