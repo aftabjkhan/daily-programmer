@@ -3,15 +3,12 @@
 open Str
 open List
 
-let concat_lines x y a = 
-    (x ^ y) :: a
-;;
-
 let _ = 
 	let l1_list = Str.split (regexp " ") (input_line stdin) in 
 	let l2_list = Str.split (regexp " ") (input_line stdin) in
 	let l3_list = Str.split (regexp " ") (input_line stdin) in
-        let braille_list = List.fold_right2 concat_lines (List.fold_right2 concat_lines l1_list l2_list []) l3_list []
+        (*let braille_list = List.map2 (fun x y -> x ^ y) (List.map2 concat_lines l1_list l2_list) l3_list*)
+        let braille_list = List.map2 (^) (List.map2 (^) l1_list l2_list) l3_list
         in
             List.map print_string braille_list
 
