@@ -1,8 +1,8 @@
-all: braile
+all: braille
 
-braile:
-	ocamlc -o braile braile.ml
+braille:
+	ocamlc -o braille braille.ml
 
 .PHONY: clean
 clean:
-	rm -f *.cmo *.cmi *.o braile
+	rm -f *.cmo *.cmi *.o braille
