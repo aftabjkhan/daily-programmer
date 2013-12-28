@@ -5,8 +5,10 @@ braille:
 
 braille_binary:
 	ocamlc -o braille_binary str.cma braille_binary.ml
-	#ocamlc -o bb str.cma bb.ml
 
+.PHONY: test
+test:
+	./test.sh
 
 .PHONY: clean
 clean:
