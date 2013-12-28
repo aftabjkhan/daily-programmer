@@ -42,4 +42,5 @@ let _ =
         (* Create list of braille characters, appending the ith of each line together *)
         let braille_list = List.map2 (^) (List.map2 (^) l1_list l2_list) l3_list in
             (* Match each character with its corresponding alphabet letter and print *)
-            List.map print_string (List.map match_letter braille_list)
+            ignore(List.map print_string (List.map match_letter braille_list));
+            print_newline ()
