@@ -1,3 +1,8 @@
+(* Aftab Khan *)
+
+(* An implementation of the Braille to plaintext converter that encodes each
+braille character (via raised and lowered "bits") to minimize dictionary size *)
+
 open Str
 
 let braille_char_length = 6;;
@@ -10,20 +15,14 @@ let binary_bit_to_dec bbit_char dec_place =
  	then int_of_float ((float_of_int 2) ** (float_of_int (braille_char_length - dec_place - 1))) 
  	else 0
 
-
-let match_letter braille = 
-(*	let encoding = 0 in
-	for i = BRAILE_CHAR_LENGTH - 1 downto 0 do
-		if braille.[i]='.' then ((float_of_int 2) ** (float_of_int i))
-	done;
-*)
-  (*let i = (braille_char_length - 1) in*)
-  let rec loop i sum =
-    if i = braille_char_length then sum
-    else loop (i + 1) (sum + (binary_bit_to_dec braille.[i] i))
-  in
-  encoded_charset.[(loop 0 0)]
-  (*(string_of_int (loop 0 0)) ^ "  "*)
+let match_letter braille =
+	(* Use tailed recursion across braile string chars (map left) to convert to 
+	decimal encoding and lookup from encoded_charset string *)
+	let rec loop i sum =
+		if i = braille_char_length then sum
+		else loop (i + 1) (sum + (binary_bit_to_dec braille.[i] i))
+		in
+			encoded_charset.[(loop 0 0)]
 
 let _ = 
     (* Read in and tokenize (create list of) each line of each braille character *)
