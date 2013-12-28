@@ -2,6 +2,11 @@ import java.util.Scanner;
 import java.util.LinkedList;
 import java.util.Iterator;
 
+
+/** 
+ * A Class used for calculating Fletcher-16 checksums
+ * @author Aftab Khan
+ */
 public class Checksum {
 
 	/**
@@ -20,7 +25,7 @@ public class Checksum {
 		Iterator<String> iterator = lineList.iterator();
 
 		while (iterator.hasNext()) {
-			short checksum = fletcher16(iterator.next().getBytes());
+			short checksum = fletcher16_opt(iterator.next().getBytes());
 			// Bitmask short to int
 			System.out.println(Integer.toHexString(checksum & 0xffff));
 		}
@@ -40,5 +45,33 @@ public class Checksum {
 			sum2 = (short) ((sum2 + sum1) % modulus);
 		}
 		return (short) ((sum2 << 8) | sum1);
+	}
+
+	/**
+	 * Calculates the Fletcher-16 checksum of a byte array, using
+	 * an optimized implementation of the Fletcher checksum algorithm
+	 * @param data The byte array representation of the data
+	 */
+	private static short fletcher16_opt(byte[] data)
+	{
+		int length = data.length;
+		short sum1 = 0xff;
+		short sum2 = 0xff;
+		int i = 0;
+
+		while (length > 0) {
+			int tlen = (length > 20) ? 20 : length;
+			length -= tlen;
+			do {
+				sum2 += sum1 += data[i];
+				i++;
+			} while ((--tlen) > 0);
+			sum1 = (short) ((sum1 & 0xff) + (sum1 >> 8));
+			sum2 = (short) ((sum2 & 0xff) + (sum2 >> 8));
+		}
+		/* Second reduction step to reduce sums to 8 bits */
+		sum1 = (short) ((sum1 & 0xff) + (sum1 >> 8));
+		sum2 = (short) ((sum2 & 0xff) + (sum2 >> 8));
+		return (short) (sum2 << 8 | sum1);
 	}
 }
