@@ -4,6 +4,10 @@ import java.util.Iterator;
 
 public class Checksum {
 
+	/**
+	 * Calculates the Fletcher-16 checksum of Strings read via console
+	 * input and prints the results to the console
+	 */
 	public static void main (String[] args){
 
 		Scanner scanner = new Scanner(System.in);
@@ -11,38 +15,27 @@ public class Checksum {
 
 		while (scanner.hasNext()){
 			lineList.add(scanner.nextLine());
-		}		
+		}
 
 		Iterator<String> iterator = lineList.iterator();
 
 		while (iterator.hasNext()) {
-			printFletcherChecksum(iterator.next());
+			short checksum = fletcher16(iterator.next().getBytes());
+			// Bitmask short to int
+			System.out.println(Integer.toHexString(checksum & 0xffff));
 		}
-
 	}
 
 	/**
-	 * Calculates the Fletcher-16 checksum of a String and prints the result to System.out
-	 * @param data The String to analyze
-	 */
-	private static void printFletcherChecksum(String data){
-		byte[] dataByteArray = data.getBytes();
-		short checksum = fletcher16(dataByteArray, dataByteArray.length);
-		String hexString = Integer.toHexString(checksum & 0xffff);
-		System.out.println(hexString);
-	}
-
-	/**
-	 * Implements the Fletcher-16 checksum algorithm
+	 * Calculates the Fletcher-16 checksum of a byte array
 	 * @param data The byte array representation of the data
-	 * @param length The length of the data byte array
 	 */
-	private static short fletcher16(byte[] data, int length){
+	private static short fletcher16(byte[] data){
 		short sum1 = 0;
 		short sum2 = 0;
 		short modulus = 255;
 
-		for (int i = 0; i < length; i++){
+		for (int i = 0; i < data.length; i++){
 			sum1 = (short) ((sum1 + data[i]) % modulus);
 			sum2 = (short) ((sum2 + sum1) % modulus);
 		}
