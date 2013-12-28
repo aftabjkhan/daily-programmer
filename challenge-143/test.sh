@@ -22,7 +22,7 @@ do
 		for file in $test_files
 		do
 			echo -e "\nRunning Test: $file..."
-			declare result=$(./braille < $file)
+			declare result=$(./$program < $file)
 			declare expected=${file:PARENT_DIR_LENGTH}
 			if [ "$1" == "-v" ]; then
 		    	echo "Input:"
