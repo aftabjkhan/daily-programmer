@@ -1,5 +1,39 @@
+open Str
+
+let braille_char_length = 6;;
+let binary_1_char = '.';;
+
 let encoded_charset = " q g p fyn dxm c r hvl bzo euk a twj s i";;
 
+let binary_bit_to_dec bbit_char dec_place =
+ 	if (bbit_char = binary_1_char)
+ 	then int_of_float ((float_of_int 2) ** (float_of_int (braille_char_length - dec_place - 1))) 
+ 	else 0
+
+
+let match_letter braille = 
+(*	let encoding = 0 in
+	for i = BRAILE_CHAR_LENGTH - 1 downto 0 do
+		if braille.[i]='.' then ((float_of_int 2) ** (float_of_int i))
+	done;
+*)
+  (*let i = (braille_char_length - 1) in*)
+  let rec loop i sum =
+    if i = braille_char_length then sum
+    else loop (i + 1) (sum + (binary_bit_to_dec braille.[i] i))
+  in
+  encoded_charset.[(loop 0 0)]
+  (*(string_of_int (loop 0 0)) ^ "  "*)
+
+let _ = 
+    (* Read in and tokenize (create list of) each line of each braille character *)
+	let l1_list = Str.split (regexp " ") (input_line stdin) in 
+	let l2_list = Str.split (regexp " ") (input_line stdin) in
+	let l3_list = Str.split (regexp " ") (input_line stdin) in
+        (* Create list of braille characters, appending the ith of each line together *)
+        let braille_list = List.map2 (^) (List.map2 (^) l1_list l2_list) l3_list in
+            (* Match each character with its corresponding alphabet letter and print *)
+            List.map print_char (List.map match_letter braille_list)
 
 (*
 Character Encoding: 
