@@ -1,6 +1,7 @@
 #! /usr/bin/env python
-
 import math
+
+# Aftab Khan, 2013
 
 circle_radius = 1
 
