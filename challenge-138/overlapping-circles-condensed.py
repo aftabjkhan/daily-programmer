@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 from __future__ import print_function
-from math import pi, sqrt, acos, sin
+from math import pi, acos, sin
 
 # Aftab Khan, 2013
 
