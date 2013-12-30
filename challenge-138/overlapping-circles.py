@@ -5,7 +5,7 @@ import math
 circle_radius = 1
 
 """ Read console input (Python 2.7), split string over whitespace, and
-	convert to float """
+	convert list members to float """
 coords = map(float, raw_input().split())
 
 """ Calculate distance between two points given the points' coordinates """
@@ -25,6 +25,10 @@ def theta(d, r):
 def segment_area(theta, r):
 	return 0.5 * (theta - math.sin(theta)) * (r ** 2)
 
-theta = theta(distance(coords[0], coords[1], coords[2], coords[3]), circle_radius)
-# Answer is the area of two circles (2*pi*(r**2)) minus the intersecting area (2*seg_area)
-print "%.4f" % ((2 * math.pi) - (2 * segment_area(theta, circle_radius)))
+d = distance(coords[0], coords[1], coords[2], coords[3])
+if d >= 2:
+	print "%.4f" % (2 * math.pi)
+else:
+	""" Answer (Union of the two circles is the area of two circles 
+		(2*pi*(r**2)) minus the intersecting area (2*seg_area) """
+	print "%.4f" % ((2 * math.pi)-(2 * segment_area(theta(d, circle_radius), circle_radius)))
