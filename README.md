@@ -16,11 +16,11 @@ A personal project in which a new coding exercise will be completed every two da
 
 * [**Challenge #137: String Transposition**](http://www.reddit.com/r/dailyprogrammer/comments/1m1jam/081313_challenge_137_easy_string_transposition/) - C
 
+* [**Challenge #123: Synchronizing Calendars (Intermediate Difficulty)**](http://www.reddit.com/r/dailyprogrammer/comments/1dx3wj/050813_challenge_123_intermediate_synchronizing/) - Java
+
 
 ## Upcoming Challenges
 
 * [**Challenge #112: Get that URL**](http://www.reddit.com/r/dailyprogrammer/comments/137f7t/11142012_challenge_112_easyget_that_url/) - Javascript
-
-* [**Challenge #123: Synchronizing Calendars (Intermediate Difficulty)**](http://www.reddit.com/r/dailyprogrammer/comments/1dx3wj/050813_challenge_123_intermediate_synchronizing/) - Java
 
 * [**Challenge #136: Student Management**](http://www.reddit.com/r/dailyprogrammer/comments/1kphtf/081313_challenge_136_easy_student_management/) - PHP
