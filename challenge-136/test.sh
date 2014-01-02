@@ -38,10 +38,10 @@ do
 		    	echo "$expected"
 		    fi
 		    if [ "$expected" == "$result" ]; then
-		    	echo "Result: Success!"
+		    	echo "--Result: Success!"
 		    	let "passed_tests += 1"
 		    else
-		    	echo "Result: Failure"
+		    	echo "--Result: Failure"
 		    fi
 		    let "tests += 1"
 		done
