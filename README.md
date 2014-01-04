@@ -20,6 +20,18 @@ A personal project in which a new coding exercise will be completed every two da
 
 * [**Challenge #136: Student Management**](http://www.reddit.com/r/dailyprogrammer/comments/1kphtf/081313_challenge_136_easy_student_management/) - PHP
 
+* [**Challenge #112: Get that URL**](http://www.reddit.com/r/dailyprogrammer/comments/137f7t/11142012_challenge_112_easyget_that_url/) - Javascript
+
 ## Upcoming Challenges
 
-* [**Challenge #112: Get that URL**](http://www.reddit.com/r/dailyprogrammer/comments/137f7t/11142012_challenge_112_easyget_that_url/) - Javascript
+* [**Challenge #146: Polygon Perimeter**](http://www.reddit.com/r/dailyprogrammer/comments/1tixzk/122313_challenge_146_easy_polygon_perimeter/) - MATLAB
+
+* [**Challenge #129: N-Dimensional Vectors (Intermediate Difficulty)**](http://www.reddit.com/r/dailyprogrammer/comments/1hzq9y/071013_challenge_129_intermediate_ndimensional/) - OCaml
+
+* [**Challenge #119: Change Calculator**](http://www.reddit.com/r/dailyprogrammer/comments/17f3y2/012813_challenge_119_easy_change_calculator/) - PHP
+
+* [**Challenge #130: Roll the Dies**](http://www.reddit.com/r/dailyprogrammer/comments/1givnn/061713_challenge_130_easy_roll_the_dies/) - Python
+
+* [**Challenge #100: "Bad" Word Filter (Intermediate Difficulty)**](http://www.reddit.com/r/dailyprogrammer/comments/106gse/9202012_challenge_100_intermediate_bad_word_filter/) - Perl
+
+
