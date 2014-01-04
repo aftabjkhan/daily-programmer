@@ -5,8 +5,8 @@
 		<script>
 			function testResults (form) {
     			var TestVar = form.urlField.value;
-    			//setResults(TestVar);
-    			alert ("You typed: " + TestVar);
+    			setResults(TestVar);
+    			//alert ("You typed: " + TestVar);
 			}
 			function setResults (contents) {
 				document.getElementById("results").innerHTML = contents;
@@ -14,10 +14,10 @@
 		</script>
 	</head>
 	<body>
-		<form name="mainForm">
+		<form name="mainForm" onsubmit="return false;">
 			<input type="text" name="urlField" placeholder="Enter URL" size="50" autofocus>
 			<input type="submit" name="submitButton" value="Submit" onClick="testResults(this.form)">
 		</form>
-		<p id="results">orig</p>
+		<p id="results"></p>
 	</body>
 </html>	
