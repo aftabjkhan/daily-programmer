@@ -2,8 +2,22 @@
 <html>
 	<head>
 		<title>Challenge 112 - Get That URL</title>
+		<script>
+			function testResults (form) {
+    			var TestVar = form.urlField.value;
+    			//setResults(TestVar);
+    			alert ("You typed: " + TestVar);
+			}
+			function setResults (contents) {
+				document.getElementById("results").innerHTML = contents;
+			}
+		</script>
 	</head>
 	<body>
-		<p>TODO</p>
+		<form name="mainForm">
+			<input type="text" name="urlField" placeholder="Enter URL" size="50" autofocus>
+			<input type="submit" name="submitButton" value="Submit" onClick="testResults(this.form)">
+		</form>
+		<p id="results">orig</p>
 	</body>
-</html>
+</html>	
