@@ -3,10 +3,13 @@
 	<head>
 		<title>Challenge 112 - Get That URL</title>
 		<script>
+			document.addEventListener('invalid', function (e) {
+				setResults("The given URL is invalid");
+			}, true);
+
 			function testResults (form) {
     			var TestVar = form.urlField.value;
     			setResults(TestVar);
-    			//alert ("You typed: " + TestVar);
 			}
 			function setResults (contents) {
 				document.getElementById("results").innerHTML = contents;
@@ -14,8 +17,8 @@
 		</script>
 	</head>
 	<body>
-		<form name="mainForm" onsubmit="return false;">
-			<input type="text" name="urlField" placeholder="Enter URL" size="50" autofocus>
+		<form name="mainForm" onSubmit="return false;">
+			<input type="url" name="urlField" placeholder="Enter URL" size="50" autofocus>
 			<input type="submit" name="submitButton" value="Submit" onClick="testResults(this.form)">
 		</form>
 		<p id="results"></p>
