@@ -92,7 +92,7 @@ do
 			expected=$(cat $project_dir/$test_dir/$file$output_extension)
 			if [ "$verbose" == 1 ]; then
 		    	echo "--Input:"
-		    	cat $project_dir/$test_dir/$file.$input_extension
+		    	cat $project_dir/$test_dir/$file$input_extension
 		   
 		    	echo -e -n "\n--Output:\n"
 		    	echo "$result"
