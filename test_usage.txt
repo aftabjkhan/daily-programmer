@@ -11,22 +11,23 @@ OPTIONS:
    -M      Attempt to clean/make (all) before testing
 
 "testconfig" File Format (All 7 key-value pairs MUST be present):
-programs=""               Space separated list of names of executables to test
-program_extension=""      File extension of executables. To be included only if 
-                           the execution command requires that the extension not 
-                           be present. To be left blank otherwise
-exec_command=""           Command required to run program. To be left blank if none 
-                           is required (if file is itself executable)
+programs=""               Space separated list of names of executables to test.
+                           Include file extension here if required for execution
+program_extension=""      File extension of executables. To be included here only
+                           if execution requires that the file extension not be 
+                           present(include preceeding .). To be left blank otherwise
+exec_command=""           Command(s) and all options required to run program. To be 
+                           left blank if none required (if file is itself executable)
 test_dir=""               Name of folder containing tests inside of test directory
 test_files=""             Space separated list of test names (input output pairs)
-input_extension=""        File extension of test input files (do not include .)
-output_extension=""       File extension of test output files (do not include .)
+input_extension=""        File extension of test input files (include preceeding .)
+output_extension=""       File extension of test output files (include preceeding .)
 
 Sample Test Folder Structure and Corresponding Values:
 ./test.sh
 ./project-dir
      testconfig
-     program(.)program-extension
+     program.program-extension
      test-dir
-          test-file(.)input-extension
-          test-file(.)output-extension
+          test-file.input-extension
+          test-file.output-extension

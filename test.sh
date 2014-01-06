@@ -12,9 +12,10 @@ project_dir=""
 verbose=0
 make=0
 make_if_unavail=0
+clean=0
 
 # Parse args
-while getopts “t:hvmM” opt; do
+while getopts “t:hvmMc” opt; do
 	case $opt in
 		t)
 			project_dir=$OPTARG
@@ -31,6 +32,9 @@ while getopts “t:hvmM” opt; do
             ;;
         M)
             make=1
+            ;;
+        c)
+            clean=1
             ;;
 		?)
 			usage
@@ -55,6 +59,7 @@ source "$project_dir/testconfig"
 
 # Clean/Make if specified
 if [ $make == 1 ]; then
+	echo "Cleaning and Building Project..."
 	make clean -C $project_dir
 	make -C $project_dir
 fi
@@ -79,8 +84,12 @@ do
 		for file in $test_files
 		do
 			echo -e "\nRunning Test: $file..."
-			declare result=$($exec_command $project_dir/$program < $project_dir/$test_dir/$file.$input_extension)
-			declare expected=$(cat $project_dir/$test_dir/$file.$output_extension)
+			if [ -z "$exec_command" ]; then
+				result=$($project_dir/$program < $project_dir/$test_dir/$file$input_extension)
+			else
+				result=$($exec_command $program < $project_dir/$test_dir/$file$input_extension)
+			fi
+			expected=$(cat $project_dir/$test_dir/$file$output_extension)
 			if [ "$verbose" == 1 ]; then
 		    	echo "--Input:"
 		    	cat $project_dir/$test_dir/$file.$input_extension
@@ -105,3 +114,10 @@ do
 		echo -e "-----------------------\n"
 	fi
 done
+
+# Clean after testing if specified
+if [ $clean == 1 ]; then
+	echo "Cleaning Up Builds..."
+	make clean -C $project_dir
+	echo ""
+fi
