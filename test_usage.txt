@@ -1,0 +1,31 @@
+USAGE: $0 -t target-directory [OPTIONS]
+
+REQUIRED:
+	-t test-directory     Specify filepath to folder containing programs to test 
+                         and the project's "testconfig" file
+
+OPTIONS:
+   -h      Show usage instructions
+   -v      Print verbose test results
+
+"testconfig" File Format (all lines MUST be present):
+programs               Space separated list of executables to test
+program_extension      File extension of executables. To be included only if 
+                        the execution command requires that the extension not 
+                        be present. To be left blank otherwise
+exec_command           Command required to run program. To be left blank if none 
+                        is required (if file is itself executable)
+test_dir               Name of folder containing tests
+test_files             Space separated list of test names (input output pairs)
+input_extension        File extension of test input files
+output_extension       File extension of test output files
+
+Sample Test Folder Structure:
+./test.sh
+./project-dir
+     /executable-program.program-extension
+     /test-dir
+          /test1.input
+          /test1.output
+          /test2.input
+          /test2.output
