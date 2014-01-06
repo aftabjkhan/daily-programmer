@@ -10,9 +10,11 @@ cat ./test_usage.txt
 
 project_dir=""
 verbose=0
+make=0
+make_if_unavail=0
 
 # Parse args
-while getopts “t:hv” opt; do
+while getopts “t:hvmM” opt; do
 	case $opt in
 		t)
 			project_dir=$OPTARG
@@ -24,6 +26,12 @@ while getopts “t:hv” opt; do
 		v)
 			verbose=1
 			;;
+		m)
+            make_if_unavail=1
+            ;;
+        M)
+            make=1
+            ;;
 		?)
 			usage
 			exit 1
@@ -45,18 +53,28 @@ fi
 # Parse testconfig file
 source "$project_dir/testconfig"
 
+# Clean/Make if specified
+if [ $make == 1 ]; then
+	make clean -C $project_dir
+	make -C $project_dir
+fi
+
 # Test Executables
 for program in $programs
 do
 
-	if [ ! -e "$project_dir/$program$program_extension" ]	#Check if file does not exist
-	then
+	echo -e "\n\n============ Testing \"$program\"... ============"
+
+	if [ ! -e "$project_dir/$program$program_extension" ] && [ $make_if_unavail == 0 ]; then
 		echo -e "\nWarning! Executable $project_dir/$program does not exist. Skipping...\n"
 	else
+		if [ ! -e "$project_dir/$program$program_extension" ] && [ $make_if_unavail == 1 ]; then
+			echo -e "\nExecutable $project_dir/$program does not exist. Making..."
+			make -C $project_dir
+		fi
+
 		tests=0
 		passed_tests=0
-
-		echo -e "\n\n============ Testing \"$program\"... ============"
 
 		for file in $test_files
 		do

@@ -7,6 +7,8 @@ REQUIRED:
 OPTIONS:
    -h      Show usage instructions
    -v      Print verbose test results
+   -m      Attempt to make (all) if executable is not found
+   -M      Attempt to clean/make (all) before testing
 
 "testconfig" File Format (All 7 key-value pairs MUST be present):
 programs=""               Space separated list of names of executables to test
