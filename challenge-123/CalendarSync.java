@@ -11,11 +11,11 @@ public class CalendarSync {
 
 	public static void main (String[] args){
 		Scanner scanner = new Scanner(System.in);
-		String results;
+		String results = "";
 		while(scanner.hasNext()){
 			String[] inputs = scanner.nextLine().split(", ");
 			results += getSynchronizedDays(
-				Integer.parseInt(inputs[0]), Integer.parseInt(inputs[1]))) + "\n";
+				Integer.parseInt(inputs[0]), Integer.parseInt(inputs[1])) + "\n";
 		}
 		System.out.print(results);
 	}
