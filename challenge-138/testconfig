@@ -1,0 +1,7 @@
+programs="overlapping-circles.py overlapping-circles-condensed.py"
+program_extension=""
+exec_command=""
+test_dir="test"
+test_files="test1 test2 test3"
+input_extension=".input"
+output_extension=".output"
