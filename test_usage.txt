@@ -8,24 +8,23 @@ OPTIONS:
    -h      Show usage instructions
    -v      Print verbose test results
 
-"testconfig" File Format (all lines MUST be present):
-programs               Space separated list of executables to test
-program_extension      File extension of executables. To be included only if 
-                        the execution command requires that the extension not 
-                        be present. To be left blank otherwise
-exec_command           Command required to run program. To be left blank if none 
-                        is required (if file is itself executable)
-test_dir               Name of folder containing tests
-test_files             Space separated list of test names (input output pairs)
-input_extension        File extension of test input files
-output_extension       File extension of test output files
+"testconfig" File Format (All 7 key-value pairs MUST be present):
+programs=""               Space separated list of names of executables to test
+program_extension=""      File extension of executables. To be included only if 
+                           the execution command requires that the extension not 
+                           be present. To be left blank otherwise
+exec_command=""           Command required to run program. To be left blank if none 
+                           is required (if file is itself executable)
+test_dir=""               Name of folder containing tests inside of test directory
+test_files=""             Space separated list of test names (input output pairs)
+input_extension=""        File extension of test input files (do not include .)
+output_extension=""       File extension of test output files (do not include .)
 
-Sample Test Folder Structure:
+Sample Test Folder Structure and Corresponding Values:
 ./test.sh
 ./project-dir
-     /executable-program.program-extension
-     /test-dir
-          /test1.input
-          /test1.output
-          /test2.input
-          /test2.output
+     testconfig
+     program(.)program-extension
+     test-dir
+          test-file(.)input-extension
+          test-file(.)output-extension

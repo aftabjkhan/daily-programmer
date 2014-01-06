@@ -9,13 +9,7 @@ cat ./test_usage.txt
 }
 
 project_dir=""
-programs=""
-program_extension=""
-exec_command=""
-test_dir=""
-test_files=""
-input_extension=""
-output_extension=""
+
 
 verbose=0
 
@@ -50,13 +44,16 @@ if [ ! -e "$project_dir/testconfig" ]; then
 	echo "Error: testconfig file not found at <$project_dir/testconfig>"
 fi
 
+# Parse testconfig file
+source "$project_dir/testconfig"
 
+# Test Executables
 for program in $programs
 do
 
-	if [ ! -e "$program$program_extension" ]	#Check if file does not exist
+	if [ ! -e "$project_dir/$program$program_extension" ]	#Check if file does not exist
 	then
-		echo -e "\nWarning! Executable $program does not exist. Skipping...\n"
+		echo -e "\nWarning! Executable $project_dir/$program does not exist. Skipping...\n"
 	else
 		tests=0
 		passed_tests=0
@@ -66,11 +63,11 @@ do
 		for file in $test_files
 		do
 			echo -e "\nRunning Test: $file..."
-			declare result=$($exec_command $program < $test_dir$file$input_extension)
-			declare expected=$(cat $test_dir$file$output_extension)
-			if [ $verbose == 0 ]; then
+			declare result=$($exec_command $project_dir/$program < $project_dir/$test_dir/$file.$input_extension)
+			declare expected=$(cat $project_dir/$test_dir/$file.$output_extension)
+			if [ "$verbose" == 1 ]; then
 		    	echo "--Input:"
-		    	cat $test_dir$file$input_extension
+		    	cat $project_dir/$test_dir/$file.$input_extension
 		   
 		    	echo -e -n "\n--Output:\n"
 		    	echo "$result"
