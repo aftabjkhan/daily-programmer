@@ -14,7 +14,8 @@
 
     foreach ($cent_values as $key => $value) {
         $coin_count = (int) ($rem / $value);
-        echo "$key: $coin_count\n";
+        if ($coin_count > 0)
+            echo "$key: $coin_count\n";
         $rem -= $value * $coin_count;
     }
 
