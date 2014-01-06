@@ -2,6 +2,8 @@
 
 <?php
 
+    /* Aftab Khan, 2014 */
+
     $cent_values = array(
         "Quarters" => 25,
         "Dimes" => 10,
