@@ -2,6 +2,8 @@
 
 <?php
 
+    /* Aftab Khan, 2014 */
+
 	$student_count = (int) strtok(fgets(STDIN), " \n\t");
 	$assignment_count = (int) strtok(" \n\t");
 
