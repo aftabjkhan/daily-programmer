@@ -9,8 +9,6 @@ cat ./test_usage.txt
 }
 
 project_dir=""
-
-
 verbose=0
 
 # Parse args
