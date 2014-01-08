@@ -24,18 +24,21 @@ def print_vector(a):
 	for x in a: print "%.6g" % x,
 	print ""
 
-vectors = []
-# read in N vectors of various lengths
-for i in range(int(raw_input())):
-	vectors.append(map(float, raw_input().split()))
-	del vectors[i][0]
-# perform M vector operations on the vectors
-for j in range(int(raw_input())):
-	input_line = raw_input().split()
-	vector_function = input_line.pop(0)
-	if vector_function == "n":
-		print_vector(normalize(vectors[int(input_line[0])]))
-	elif vector_function == "l":
-		print "%0.6g" % length(vectors[int(input_line[0])])
-	elif vector_function == "d":
-		print "%0.6g" % dot_product(vectors[int(input_line[0])], vectors[int(input_line[1])])
+def main():
+	vectors = []
+	# read in N vectors of various lengths
+	for i in range(int(raw_input())):
+		vectors.append(map(float, raw_input().split()))
+		del vectors[i][0]
+	# perform M vector operations on the vectors
+	for j in range(int(raw_input())):
+		input_line = raw_input().split()
+		vector_function = input_line.pop(0)
+		if vector_function == "n":
+			print_vector(normalize(vectors[int(input_line[0])]))
+		elif vector_function == "l":
+			print "%0.6g" % length(vectors[int(input_line[0])])
+		elif vector_function == "d":
+			print "%0.6g" % dot_product(vectors[int(input_line[0])], vectors[int(input_line[1])])
+
+if __name__ == "__main__": main()
