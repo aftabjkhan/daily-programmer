@@ -85,9 +85,9 @@ do
 		do
 			echo -e "\nRunning Test: $file..."
 			if [ -z "$exec_command" ]; then
-				result=$($project_dir/$program < $project_dir/$test_dir/$file$input_extension)
+				result=$($project_dir/$program $args< $project_dir/$test_dir/$file$input_extension)
 			else
-				result=$($exec_command $program < $project_dir/$test_dir/$file$input_extension)
+				result=$($exec_command $program $args< $project_dir/$test_dir/$file$input_extension)
 			fi
 			expected=$(cat $project_dir/$test_dir/$file$output_extension)
 			if [ "$verbose" == 1 ]; then

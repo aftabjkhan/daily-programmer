@@ -1,6 +1,7 @@
 programs="Checksum"
 program_extension=".class"
 exec_command="java -classpath challenge-141"
+args=""
 test_dir="test"
 test_files="test1"
 input_extension=".input"

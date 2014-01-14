@@ -19,6 +19,8 @@ program_extension=""      File extension of executables. To be included here onl
                            present(include preceeding .). To be left blank otherwise
 exec_command=""           Command(s) and all options required to run program. To be 
                            left blank if none required (if file is itself executable)
+args=""                   Command line arguments to be passed to all executables. To 
+                           be left blank if none required
 test_dir=""               Name of folder containing tests inside of test directory
 test_files=""             Space separated list of test names (input output pairs)
 input_extension=""        File extension of test input files (include preceeding .)

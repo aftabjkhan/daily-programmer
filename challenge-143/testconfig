@@ -1,6 +1,7 @@
 programs="braille braille_binary"
 program_extension=""
 exec_command=""
+args=""
 test_dir="test"
 test_files="test1 test2 test3 test4 test5"
 input_extension=".input"

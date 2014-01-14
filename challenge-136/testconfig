@@ -1,6 +1,7 @@
 programs="student_management.php"
 program_extension=""
 exec_command=""
+args=""
 test_dir="test"
 test_files="test1 test2"
 input_extension=".input"

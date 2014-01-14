@@ -1,6 +1,7 @@
 programs="CalendarSync"
 program_extension=".class"
 exec_command="java -classpath challenge-123"
+args=""
 test_dir="test"
 test_files="test1 test2 test3"
 input_extension=".input"
