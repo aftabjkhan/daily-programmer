@@ -1,0 +1,8 @@
+programs="censor.pl"
+program_extension=""
+exec_command=""
+args="challenge-100/badwords.txt"
+test_dir="test"
+test_files="test1 test2 test3"
+input_extension=".input"
+output_extension=".output"
