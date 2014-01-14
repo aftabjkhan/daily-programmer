@@ -29,10 +29,12 @@ To compile and execute any of the challenges, please use [**test.sh**](https://g
 
 * [**Challenge #129: N-Dimensional Vectors (Intermediate Difficulty)**](http://www.reddit.com/r/dailyprogrammer/comments/1hzq9y/071013_challenge_129_intermediate_ndimensional/) - [**Python**](https://github.com/aftabjkhan/daily-programmer/tree/master/challenge-129)
 
+* [**Challenge #100: "Bad" Word Filter (Intermediate Difficulty)**](http://www.reddit.com/r/dailyprogrammer/comments/106gse/9202012_challenge_100_intermediate_bad_word_filter/) - [**Perl**](https://github.com/aftabjkhan/daily-programmer/tree/master/challenge-100)
+
 ## Upcoming Challenges
 
 * [**Challenge #146: Polygon Perimeter**](http://www.reddit.com/r/dailyprogrammer/comments/1tixzk/122313_challenge_146_easy_polygon_perimeter/) - MATLAB
 
-* [**Challenge #100: "Bad" Word Filter (Intermediate Difficulty)**](http://www.reddit.com/r/dailyprogrammer/comments/106gse/9202012_challenge_100_intermediate_bad_word_filter/) - Perl
+
 
 
